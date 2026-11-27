@@ -1,13 +1,12 @@
-class Person:
+from enum import Enum
+
+class Role(Enum):
+    Admin='admin'
+    Editor='editor'
+    Viwer='viwer'
     
-    def __init__(self,name :str ,age:int)-> None:
-        self.name=name
-        self.age=age
-
-def get_person(one_person : Person)->tuple[str]:
+def get_access(user : str, role :Role)-> str:
+    return f'{user} has role name :-{role.name}, for value:-{role.value}'
     
-    return one_person.name,one_person.age
 
-p1=Person('rushi',28)
-
-print(get_person(p1))
+print( get_access('rushi',Role.Admin))

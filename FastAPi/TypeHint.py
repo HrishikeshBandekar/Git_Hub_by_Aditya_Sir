@@ -34,7 +34,7 @@ print(full_name1('rushi','bandekar'))
 
 # function with type hint 
 
-def func2(param:list[str])->list[str]:
+def func2(param:list[str ])->list[str]:
     param.reverse()
     return param
 
@@ -54,6 +54,7 @@ print(full_name2('rushi','bandekar'))
 
 
 #################################
+
 
 age1
 age2
@@ -170,7 +171,7 @@ process_id()
 
 # type hint for iterable
 
-from typing import Iterable
+from collections.abc import Iterable
 
 def array(item : Iterable[str]):
     
@@ -201,4 +202,35 @@ p1=Person('rushi',28)
 print(get_person(p1))
 
 
+
+# literal in type hint
+#Literal is used when you want to allow  specific exact values for literal, not just a dataytpe
+# does not enforce type
+
+from typing import Literal
+
+def set_access(name : str, Role : Literal['Admin','Editor','Viwer']) -> str:
+    return f'{name} as a {Role} permission'
+
+print(set_access('rushikesh','Admin'))
+print(set_access('sham','Viwer'))
+print(set_access('ram','xyz'))   # does not enforce type
+
+
+
+# Enum in TypeHint
+# we can re-use role class multiple places
+
+from enum import Enum
+
+class Role(Enum):
+    Admin='admin'
+    Editor='editor'
+    Viwer='viwer'
+    
+def get_access(user : str, role :Role)-> str:
+    return f'{user} has role name :-{role.name}, for value:-{role.value}'
+    
+
+print( get_access('rushi',Role.Admin))
     
