@@ -1,12 +1,13 @@
-from enum import Enum
+from pydantic import BaseModel
 
-class Role(Enum):
-    Admin='admin'
-    Editor='editor'
-    Viwer='viwer'
+class Student(BaseModel):
     
-def get_access(user : str, role :Role)-> str:
-    return f'{user} has role name :-{role.name}, for value:-{role.value}'
+    name:str
+    age:int
+    gpa:float
     
+s1=Student(name='rushi',age=28,gpa=2.5)  # positive scenario
+print(s1)
 
-print( get_access('rushi',Role.Admin))
+s1=Student(name='rushi',age='28',gpa=True)  # by default lax mode
+print(s1)

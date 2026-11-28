@@ -204,8 +204,8 @@ print(get_person(p1))
 
 
 # literal in type hint
-#Literal is used when you want to allow  specific exact values for literal, not just a dataytpe
-# does not enforce type
+# Literal is used when you want to allow only specific,predefined exact values rather than any value of a datatype.
+#  does not enforce type
 
 from typing import Literal
 
@@ -219,6 +219,7 @@ print(set_access('ram','xyz'))   # does not enforce type
 
 
 # Enum in TypeHint
+# num creates a collection of predefined values
 # we can re-use role class multiple places
 
 from enum import Enum
